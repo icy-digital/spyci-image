@@ -1,0 +1,37 @@
+FROM ubuntu:20.04
+
+RUN apt-get upgrade && \
+    apt-get update && \
+    apt-get install -y  \
+    byacc \
+    cmake \
+    curl \
+    g++ \
+    git \
+    gstreamer1.0-plugins-base-apps \
+    libgstreamer1.0-dev \
+    libgstreamer-plugins-base1.0-dev \
+    m4 \
+    maven \
+    openjdk-8-jdk \
+    python2.7 \
+    pkg-config \
+    vim \
+    wget  \
+    xz-utils && \
+    rm -rf /var/lib/apt/lists/* &&
+
+
+# ===== Setup Kinesis Video Streams Producer SDK (CPP) =======================================
+WORKDIR /opt/
+
+RUN git clone https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp.git
+WORKDIR /amazon-kinesis-video-streams-producer-sdk-cpp/build/
+RUN cmake .. -DBUILD_GSTREAMER_PLUGIN=ON &&\
+    make
+
+COPY start_rtsp_in_docker.sh /opt/amazon-kinesis-video-streams-producer-sdk-cpp/build/
+
+
+#
+ENTRYPOINT ["start_rtsp.sh"]
