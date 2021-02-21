@@ -15,4 +15,4 @@ jobs:
       - name: build docker image
         id: dockerbuild
         run: |
-          docker build
+          docker build .

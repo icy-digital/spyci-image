@@ -1,16 +1,17 @@
 FROM ubuntu:20.04
+ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get upgrade && \
     apt-get update && \
-    apt-get install -y  \
+    apt-get install -y \
     byacc \
     cmake \
     curl \
     g++ \
     git \
     gstreamer1.0-plugins-base-apps \
-    gstreamer1.0-plugins-bad \
     gstreamer1.0-plugins-good \
+    gstreamer1.0-plugins-bad \
     gstreamer1.0-plugins-ugly \
     libgstreamer1.0-dev \
     libgstreamer-plugins-base1.0-dev \
@@ -22,7 +23,7 @@ RUN apt-get upgrade && \
     vim \
     wget  \
     xz-utils && \
-    rm -rf /var/lib/apt/lists/* &&
+    rm -rf /var/lib/apt/lists/*
 
 
 # ===== Setup Kinesis Video Streams Producer SDK (CPP) =======================================
