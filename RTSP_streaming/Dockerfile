@@ -37,7 +37,7 @@ COPY start_rtsp_in_docker.sh /opt/amazon-kinesis-video-streams-producer-sdk-cpp/
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/
 ENV LD_LIBRARY_PATH=/opt/amazon-kinesis-video-streams-producer-sdk-cpp/open-source/local/lib:$LD_LIBRARY_PATH
 ENV GST_PLUGIN_PATH=/opt/amazon-kinesis-video-streams-producer-sdk-cpp/build
-RUN chmod a+x ./start_rtsp_in_docker.sh
+RUN chmod a+x ./start_rtsp.sh
 
 #
-ENTRYPOINT ["start_rtsp.sh"]
+ENTRYPOINT ["./start_rtsp.sh"]

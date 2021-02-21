@@ -1,0 +1,16 @@
+name: cd
+
+on: push
+
+build:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Set up Docker Buildx
+      id: buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: build docker image
+      id: dockerbuild
+      run: |
+        cd RTSP_streaming
+        docker build -t rtspstreaming .
