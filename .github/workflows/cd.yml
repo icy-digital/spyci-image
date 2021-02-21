@@ -1,4 +1,4 @@
-name: cd
+name: create-docker-image
 
 on: push
 
@@ -13,5 +13,4 @@ jobs:
       - name: build docker image
         id: dockerbuild
         run: |
-          cd RTSP_streaming
-          docker build -t rtspstreaming .
+          docker build . --file Dockerfile
