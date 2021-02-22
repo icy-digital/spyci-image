@@ -1,9 +1,12 @@
 #!/bin/bash
 
-cd /opt/amazon-kinesis-video-streams-producer-sdk-cpp/build/
+# cd /opt/amazon-kinesis-video-streams-producer-sdk-cpp/build/
 
-export LD_LIBRARY_PATH=/opt/amazon-kinesis-video-streams-producer-sdk-cpp/open-source/local/lib:$LD_LIBRARY_PATH
+export GST_PLUGIN_PATH=/opt/amazon-kinesis-video-streams-producer-sdk-cpp/build
+export LD_LIBRARY_PATH=/opt/amazon-kinesis-video-streams-producer-sdk-cpp/open-source/local/lib
 
-gst-launch-1.0 rtspsrc location=$RTSP_URL short-header=TRUE ! rtph264depay ! video/x-h\
-264, width=640,height=480,framerate=15/1, format=avc,alignment=au ! kvssink stream-name=$STREAM_NAME \
-storage-size=512 access-key=$AWS_ACCESS_KEY_ID secret-key=$AWS_SECRET_ACCESS_KEY
+gst-launch-1.0 v4l2src do-timestamp=TRUE device=/dev/video0 ! videoconvert \
+! video/x-raw,format=I420,width=640,height=480,framerate=30/1 ! omxh264enc \
+control-rate=2 target-bitrate=512000 inline-header=FALSE periodicty-idr=20 ! \
+h264parse ! video/x-h264,stream-format=avc,alignment=au,width=640,height=480,framerate=30/1,profile=baseline ! \
+kvssink stream-name="YOURSTREAMNAME" access-key=YOURACCESSKEY secret-key=YOURSECRETKEY
