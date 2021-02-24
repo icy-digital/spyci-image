@@ -15,11 +15,11 @@ jobs:
       - name: build docker linux image
         id: dockerbuildlinux
         run: |
-          docker build -t kinesis-video-producer-docker-linux < \
+          docker build - < \
             ./producer-cpp/docker-linux/Dockerfile
 
       - name: build docker raspberry pi image
         id: dockerbuildraspberry
         run: |
-          docker build -t kinesis-video-producer-docker-linux < \
+          docker build - < \
             ./producer-cpp/docker-raspberry-pi/Dockerfile
