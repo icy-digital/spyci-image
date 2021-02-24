@@ -1,3 +1,6 @@
+# Build docker with
+# docker build -t kinesis-video-producer-sdk-cpp-raspberry-pi .
+
 FROM resin/rpi-raspbian:stretch
 
 RUN apt-get update && \
@@ -46,7 +49,7 @@ WORKDIR /opt/
 RUN	git clone https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp.git
 WORKDIR /opt/amazon-kinesis-video-streams-producer-sdk-cpp/build/
 RUN cmake .. -DBUILD_GSTREAMER_PLUGIN=ON -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DBUILD_OPENSSL_PLATFORM=linux-armv4 && \
-	make
+		make
 
 ENV LD_LIBRARY_PATH=/opt/amazon-kinesis-video-streams-producer-sdk-cpp/open-source/local/lib
 ENV GST_PLUGIN_PATH=/opt/amazon-kinesis-video-streams-producer-sdk-cpp/build/:$GST_PLUGIN_PATH

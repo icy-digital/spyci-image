@@ -16,11 +16,8 @@ RUN apt-get install \
 # ===== Setup Kinesis Video Streams Producer SDK (CPP) =======================================
 RUN git clone https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp.git
 WORKDIR /amazon-kinesis-video-streams-producer-sdk-cpp/build/
-RUN cmake -DBUILD_GSTREAMER_PLUGIN; \
+RUN cmake -DBUILD_GSTREAMER_PLUGIN && \
     make
 
 export GST_PLUGIN_PATH=/amazon-kinesis-video-streams-producer-sdk-cpp/build
 export LD_LIBRARY_PATH=/amazon-kinesis-video-streams-producer-sdk-cpp/open-source/local/lib
-
-
-ENTRYPOINT ["start_rtsp.sh"]

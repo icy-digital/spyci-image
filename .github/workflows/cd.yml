@@ -12,7 +12,14 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
-      - name: build docker image
-        id: dockerbuild
+      - name: build docker linux image
+        id: dockerbuildlinux
         run: |
-          docker build .
+          docker build -t kinesis-video-producer-docker-linux < \
+            producer-cpp/docker-linux/Dockerfile
+
+      - name: build docker raspberry pi image
+        id: dockerbuildraspberry
+        run: |
+          docker build -t kinesis-video-producer-docker-linux < \
+            producer-cpp/docker-raspberry-pi/Dockerfile
