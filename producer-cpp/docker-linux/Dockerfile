@@ -19,5 +19,5 @@ WORKDIR /amazon-kinesis-video-streams-producer-sdk-cpp/build/
 RUN cmake -DBUILD_GSTREAMER_PLUGIN && \
     make
 
-export GST_PLUGIN_PATH=/amazon-kinesis-video-streams-producer-sdk-cpp/build
-export LD_LIBRARY_PATH=/amazon-kinesis-video-streams-producer-sdk-cpp/open-source/local/lib
+ENV GST_PLUGIN_PATH=/amazon-kinesis-video-streams-producer-sdk-cpp/build
+ENV LD_LIBRARY_PATH=/amazon-kinesis-video-streams-producer-sdk-cpp/open-source/local/lib
