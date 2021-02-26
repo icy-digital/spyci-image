@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get upgrade && \
@@ -23,7 +23,7 @@ RUN apt-get upgrade && \
     vim \
     wget  \
     xz-utils && \
-    rm -rf /var/lib/apt/lists/* 
+    rm -rf /var/lib/apt/lists/*
 
 # ===== Setup Kinesis Video Streams Producer SDK (CPP) =======================================
 WORKDIR /opt/
