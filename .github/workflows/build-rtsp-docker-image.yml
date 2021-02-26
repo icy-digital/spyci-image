@@ -7,7 +7,7 @@ on:
     - ".github/workflows/build-rtsp-docker-image.yml"
 
 jobs:
-  build:
+  build-image:
     runs-on: ubuntu-latest
     steps:
       - name: clone the repo
@@ -21,11 +21,12 @@ jobs:
         run: |
           docker build \
           -q \
-          -t rtsp \
+          -t rtsp/linux:latest \
             ./producer-cpp/docker-linux
 
       - name: retrieve rtsp docker image id
         run: |
+          docker images -q rtsp
           echo "IMAGE_ID=$(docker images -q rtsp)" >> $GITHUB_ENV
 
       - name: observe rtsp docker image id
@@ -38,4 +39,4 @@ jobs:
     steps:
       - name: push image to github container registry
         run: |
-          docker push ghcr.io/balou9/spyci-image/rtsp:latest
+          docker push ghcr.io/balou9/rtsp/linux:latest
