@@ -18,7 +18,7 @@ jobs:
           docker build \
           -q \
           -t ubuntu_streaming_docker \
-            ./producer-cpp/docker-linux/Dockerfile
+            ./producer-cpp/docker-linux
 
       - name: observe docker images
         run: |
