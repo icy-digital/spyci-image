@@ -1,6 +1,7 @@
 # Build docker with
 # docker build -t kinesis-video-producer-sdk-cpp-raspberry-pi .
 
+ARG DEBIAN_FRONTEND=noninteractive
 FROM resin/rpi-raspbian:stretch
 
 RUN apt-get update && \
