@@ -12,5 +12,5 @@ jobs:
       - name: build docker linux image
         id: dockerbuildlinux
         run: |
-          docker build - < \
+          docker build -q < \
             ./producer-cpp/docker-linux/Dockerfile
