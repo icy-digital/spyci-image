@@ -26,7 +26,7 @@ jobs:
 
       - name: retrieve rtsp docker image id
         run: |
-          echo "IMAGE_ID=$(docker images -q rtsp_docker)" >> $GITHUB_ENV
+          echo "IMAGE_ID=$(docker images -q rtsp)" >> $GITHUB_ENV
 
       - name: observe rtsp docker image id
         run: |
@@ -38,4 +38,4 @@ jobs:
     steps:
       - name: push image to github container registry
         run: |
-          docker push ghcr.io/balou9/rtsp:latest
+          docker push ghcr.io/balou9/spyci-image/rtsp:latest
