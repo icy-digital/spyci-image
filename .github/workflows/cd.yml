@@ -23,6 +23,10 @@ jobs:
           -t rtsp_docker \
             ./producer-cpp/docker-linux
 
-      - name: observe rtsp docker image
+      - name: retrieve rtsp docker image id
         run: |
-          docker images
+          echo "IMAGE_ID=$(docker images -q rtsp_docker)" >> $GITHUB_ENV
+
+      - name: observe rtsp docker image id
+        run: |
+          printf "${{ env.IMAGE_ID }}"
