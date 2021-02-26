@@ -1,6 +1,9 @@
-name: create-docker-image
+name: build-rtsp-docker-image
 
 on: push
+  paths:
+    - "producer-cpp/docker-linux/Dockerfile"
+    - ".github/workflows/cd.yml"
 
 jobs:
   build:
@@ -13,13 +16,13 @@ jobs:
         run: |
           echo ${{ secrets.CR_PAT }} | docker login ghcr.io -u Balou9 --password-stdin
 
-      - name: build docker linux image
+      - name: build rtsp docker image
         run: |
           docker build \
           -q \
-          -t ubuntu_streaming_docker \
+          -t rtsp_docker \
             ./producer-cpp/docker-linux
 
-      - name: observe docker images
+      - name: observe rtsp docker image
         run: |
           docker images
