@@ -1,7 +1,8 @@
 name: build-rtsp-docker-image
 
-on: push
-  paths:
+on:
+  push:
+    paths:
     - "producer-cpp/docker-linux/Dockerfile"
     - ".github/workflows/cd.yml"
 
