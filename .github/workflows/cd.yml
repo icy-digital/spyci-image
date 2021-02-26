@@ -13,9 +13,13 @@ jobs:
         run: |
           echo ${{ secrets.CR_PAT }} | docker login ghcr.io -u Balou9 --password-stdin
 
-      # - name: build docker linux image
-      #   run: |
-      #     docker build \
-      #     -q \
-      #     -t \
-      #       ./producer-cpp/docker-linux/Dockerfile
+      - name: build docker linux image
+        run: |
+          docker build \
+          -q \
+          -t ubuntu_streaming_docker \
+            ./producer-cpp/docker-linux/Dockerfile
+
+      - name: observe docker images
+        run: |
+          docker images
