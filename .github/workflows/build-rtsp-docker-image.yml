@@ -4,7 +4,7 @@ on:
   push:
     paths:
     - "producer-cpp/docker-linux/Dockerfile"
-    - ".github/workflows/cd.yml"
+    - ".github/workflows/build-rtsp-docker-image.yml"
 
 jobs:
   build:
@@ -31,3 +31,7 @@ jobs:
       - name: observe rtsp docker image id
         run: |
           printf "${{ env.IMAGE_ID }}"
+
+      - name: push image to github container registry
+        run: |
+          docker push ghcr.io/Balou9/rtsp_docker:latest
