@@ -21,7 +21,7 @@ jobs:
         run: |
           docker build \
           -q \
-          -t rtsp_docker \
+          -t rtsp \
             ./producer-cpp/docker-linux
 
       - name: retrieve rtsp docker image id
@@ -38,4 +38,4 @@ jobs:
     steps:
       - name: push image to github container registry
         run: |
-          docker push ghcr.io/Balou9/rtsp_docker:latest
+          docker push ghcr.io/balou9/rtsp:latest
