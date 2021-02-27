@@ -1,0 +1,28 @@
+name: build-raspberry-pi-image
+
+on:
+  push:
+    paths:
+    - "producer-cpp/docker-raspberry-pi/Dockerfile"
+    - ".github/workflows/build-raspberry-pi-image.yml"
+
+jobs:
+  build-push-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone the repo
+        uses: actions/checkout@v2.3.4
+
+      - name: login to github container registry
+        run: |
+          echo ${{ secrets.CR_PAT }} | docker login https://docker.pkg.github.com -u Balou9 --password-stdin
+
+      - name: build rtsp docker image
+        run: |
+          docker build -q \
+          -t docker.pkg.github.com/icy-digital/spyci-image/raspberrypi:latest \
+          ./producer-cpp/docker-raspberry-pi
+
+      - name: push image to github container registry
+        run: |
+          docker push docker.pkg.github.com/icy-digital/spyci-image/raspberrypi:latest
