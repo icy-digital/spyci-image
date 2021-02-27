@@ -13,7 +13,7 @@ jobs:
       - name: clone the repo
         uses: actions/checkout@v2.3.4
 
-      - name: login to github container registry
+      - name: login to github docker container registry
         run: |
           echo ${{ secrets.CR_PAT }} | docker login https://docker.pkg.github.com -u Balou9 --password-stdin
 
@@ -22,20 +22,16 @@ jobs:
           docker build -q \
           -t docker.pkg.github.com/icy-digital/spyci-image/rtsp:latest \
           ./producer-cpp/docker-linux
+      #
+      # - name: retrieve rtsp docker image id
+      #   run: |
+      #     echo "IMAGE_ID=$(docker images -q docker.pkg.github.com/icy-digital/spyci-image/rtsp:latest)" >> $GITHUB_ENV
+      #
+      # - name: observe rtsp docker image id
+      #   run: |
+      #     printf "${{ env.IMAGE_ID }}"
 
-      - name: retrieve rtsp docker image id
+      - name: push image to github packages
         run: |
           docker images
-          echo "IMAGE_ID=$(docker images -q balou9/rtsp:latest)" >> $GITHUB_ENV
-
-      - name: observe rtsp docker image id
-        run: |
-          printf "${{ env.IMAGE_ID }}"
-
-  # push-image:
-  #   runs-on: ubuntu-latest
-  #   needs: build-image
-  #   steps:
-  #     - name: push image to github container registry
-  #       run: |
-  #         docker push ghcr.io/balou9/rtsp:latest
+          docker push docker.pkg.github.com/icy-digital/spyci-image/rtsp:latest
