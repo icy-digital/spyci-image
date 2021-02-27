@@ -7,7 +7,7 @@ on:
     - ".github/workflows/build-rtsp-docker-image.yml"
 
 jobs:
-  build:
+  build-push-image:
     runs-on: ubuntu-latest
     steps:
       - name: clone the repo
@@ -23,10 +23,6 @@ jobs:
           -t docker.pkg.github.com/icy-digital/spyci-image/rtsp:latest \
           ./producer-cpp/docker-linux
 
-  push:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
       - name: push image to github container registry
         run: |
           docker push docker.pkg.github.com/icy-digital/spyci-image/rtsp:latest
