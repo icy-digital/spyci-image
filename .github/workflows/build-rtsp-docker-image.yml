@@ -39,4 +39,4 @@ jobs:
     steps:
       - name: push image to github container registry
         run: |
-          docker push ghcr.io/balou9/rtsp/linux:latest
+          docker push ghcr.io/balou9/rtsp:latest
