@@ -1,4 +1,4 @@
-FROM resin/rpi-raspbian:stretch
+FROM balenalib/raspberrypi3-64:stretch
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
