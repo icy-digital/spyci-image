@@ -1,5 +1,5 @@
-FROM balenalib/raspberrypi3-64:stretch
 ARG DEBIAN_FRONTEND=noninteractive
+FROM balenalib/raspberrypi3-64:latest
 
 RUN apt-get update && \
 	apt-get install -y \
@@ -25,11 +25,6 @@ RUN apt-get update && \
 	pkg-config \
 	vim
 
-#RUN curl -OL https://github.com/raspberrypi/firmware/archive/1.20180417.tar.gz
-#RUN tar xvf 1.20180417.tar.gz
-#RUN cp -r /opt/firmware-1.20180417/opt/vc ./
-#RUN rm -rf firmware-1.20180417 1.20180417.tar.gz
-
 ###################################################
 # create symlinks for libraries used by omxh264enc
 ###################################################
@@ -47,7 +42,7 @@ WORKDIR /opt/
 RUN	git clone https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp.git
 WORKDIR /opt/amazon-kinesis-video-streams-producer-sdk-cpp/build/
 RUN cmake .. -DBUILD_GSTREAMER_PLUGIN=ON -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DBUILD_OPENSSL_PLATFORM=linux-armv4 && \
-		make
+	make
 
 ENV LD_LIBRARY_PATH=/opt/amazon-kinesis-video-streams-producer-sdk-cpp/open-source/local/lib
 ENV GST_PLUGIN_PATH=/opt/amazon-kinesis-video-streams-producer-sdk-cpp/build/:$GST_PLUGIN_PATH
