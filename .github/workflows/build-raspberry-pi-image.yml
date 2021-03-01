@@ -17,7 +17,7 @@ jobs:
         run: |
           echo ${{ secrets.CR_PAT }} | docker login https://docker.pkg.github.com -u Balou9 --password-stdin
 
-      - name: build rtsp docker image
+      - name: build raspberry pi docker image
         run: |
           docker build -q \
           -t docker.pkg.github.com/icy-digital/spyci-image/raspberrypi:latest \

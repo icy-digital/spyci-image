@@ -1,4 +1,4 @@
-name: build-rtsp-docker-image
+name: build-rtsp-image
 
 on:
   push:
