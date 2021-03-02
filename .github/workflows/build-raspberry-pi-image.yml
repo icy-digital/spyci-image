@@ -19,7 +19,7 @@ jobs:
 
       - name: build raspberry pi docker image
         run: |
-          docker build -q \
+          docker build \
           -t docker.pkg.github.com/icy-digital/spyci-image/raspberrypi:latest \
           ./producer-cpp/docker-raspberry-pi
 

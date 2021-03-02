@@ -2,28 +2,29 @@ ARG DEBIAN_FRONTEND=noninteractive
 FROM balenalib/raspberrypi3-64:latest
 
 RUN apt-get update && \
-	apt-get install -y \
-	cmake \
-	curl \
-	g++ \
-	gcc \
-	git \
-	gstreamer1.0-plugins-base-apps \
-	gstreamer1.0-plugins-bad \
-	gstreamer1.0-plugins-good \
-	gstreamer1.0-plugins-ugly \
-	gstreamer1.0-tools \
-	gstreamer1.0-omx \
-	libssl-dev \
-	libcurl4-openssl-dev \
-	liblog4cplus-dev \
-	libgstreamer1.0-dev \
-	libgstreamer-plugins-base1.0-dev \
-	m4 \
-	make \
-	openssh-server \
-	pkg-config \
-	vim
+		apt-get install -y \
+		cmake \
+		curl \
+		g++ \
+		gcc \
+		git \
+		gstreamer1.0-plugins-base-apps \
+		gstreamer1.0-plugins-bad \
+		gstreamer1.0-plugins-good \
+		gstreamer1.0-plugins-ugly \
+		gstreamer1.0-tools \
+		gstreamer1.0-omx \
+		libssl-dev \
+		libcurl4-openssl-dev \
+		liblog4cplus-dev \
+		libgstreamer1.0-dev \
+		libgstreamer-plugins-base1.0-dev \
+		m4 \
+		make \
+		openssh-server \
+		pkg-config \
+		vim && \
+		rm -rf /var/lib/apt/lists/*
 
 ###################################################
 # create symlinks for libraries used by omxh264enc
