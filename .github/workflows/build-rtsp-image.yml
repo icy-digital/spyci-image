@@ -4,7 +4,7 @@ on:
   push:
     paths:
     - "producer-cpp/docker-linux/Dockerfile"
-    - ".github/workflows/build-rtsp-docker-image.yml"
+    - ".github/workflows/build-rtsp-image.yml"
 
 jobs:
   build-push-image:
