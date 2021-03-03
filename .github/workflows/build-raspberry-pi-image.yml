@@ -20,9 +20,9 @@ jobs:
       - name: build raspberry pi docker image
         run: |
           docker build \
-          -t docker.pkg.github.com/icy-digital/spyci-image/raspberrypi:latest \
+          -t docker.pkg.github.com/icydigital/spyci-images/raspberrypi:latest \
           ./producer-cpp/docker-raspberry-pi
 
       - name: push image to github container registry
         run: |
-          docker push docker.pkg.github.com/icy-digital/spyci-image/raspberrypi:latest
+          docker push docker.pkg.github.com/icydigital/spyci-images/raspberrypi:latest

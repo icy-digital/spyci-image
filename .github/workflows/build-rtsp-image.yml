@@ -20,9 +20,9 @@ jobs:
       - name: build rtsp docker image
         run: |
           docker build -q \
-          -t docker.pkg.github.com/icy-digital/spyci-image/rtsp:latest \
+          -t docker.pkg.github.com/icydigital/spyci-images/rtsp:latest \
           ./producer-cpp/docker-linux
 
       - name: push image to github container registry
         run: |
-          docker push docker.pkg.github.com/icy-digital/spyci-image/rtsp:latest
+          docker push docker.pkg.github.com/icydigital/spyci-images/rtsp:latest
