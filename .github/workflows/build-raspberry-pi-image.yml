@@ -16,6 +16,7 @@ jobs:
       - name: login to github container registry
         run: |
           echo ${{ secrets.CR_PAT }} | docker login https://docker.pkg.github.com -u Balou9 --password-stdin
+          docker images -a
 
       - name: build raspberry pi docker image
         run: |

@@ -3,7 +3,7 @@ FROM ubuntu:20.04
 
 RUN apt-get upgrade && \
     apt-get update && \
-    apt-get install -y \
+    apt-get install \
     byacc \
     cmake \
     curl \
