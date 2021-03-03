@@ -4,26 +4,19 @@ FROM ubuntu:20.04
 RUN apt-get upgrade && \
     apt-get update && \
     apt-get install -y \
-    byacc \
-    cmake \
-    curl \
-    g++ \
-    git \
+    libssl-dev \
+    libcurl4-openssl-dev \
+    liblog4cplus-dev \
+    libgstreamer1.0-dev \
+    libgstreamer-plugins-base1.0-dev \
     gstreamer1.0-plugins-base-apps \
     gstreamer1.0-plugins-bad \
     gstreamer1.0-plugins-good \
     gstreamer1.0-plugins-ugly \
-    libgstreamer1.0-dev \
-    libgstreamer-plugins-base1.0-dev \
-    m4 \
-    maven \
-    openjdk-8-jdk \
-    python2.7 \
+    gstreamer1.0-tools \
     pkg-config \
-    vim \
-    wget  \
-    xz-utils && \
-    rm -rf /var/lib/apt/lists/*
+    cmake \
+    m4
 
 # ===== Setup Kinesis Video Streams Producer SDK (CPP) =======================================
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/
