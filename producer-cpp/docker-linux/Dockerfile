@@ -4,6 +4,7 @@ FROM ubuntu:20.04
 RUN apt-get upgrade && \
     apt-get update && \
     apt-get -y install \
+    tzdata
     byacc \
     cmake \
     curl \
