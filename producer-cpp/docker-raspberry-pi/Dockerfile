@@ -5,7 +5,6 @@ RUN apt-get upgrade && \
 		apt-get update && \
 		apt-get install -y \
 		cmake \
-		git \
 		byacc \
 		flex \
 		openjdk-8-jdk
