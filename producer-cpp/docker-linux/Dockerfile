@@ -23,8 +23,7 @@ RUN apt-get upgrade && \
     vim \
     wget  \
     xz-utils && \
-    rm -rf /var/lib/apt/lists/* && \
-    cd /opt/
+    rm -rf /var/lib/apt/lists/*
 
 # ===== Setup Kinesis Video Streams Producer SDK (CPP) =======================================
 WORKDIR /opt/

@@ -19,7 +19,7 @@ jobs:
 
       - name: build rtsp docker image
         run: |
-          docker build -q \
+          docker build \
           -t docker.pkg.github.com/icydigital/spyci-images/rtsp:latest \
           ./producer-cpp/docker-linux
 
