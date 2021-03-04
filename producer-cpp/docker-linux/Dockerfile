@@ -4,7 +4,7 @@ ENV TZ=Europe/Berlin
 
 RUN apt-get upgrade && \
     apt-get update && \
-    apt-get -y install \
+    apt-get -y -q install \
     byacc \
     cmake \
     curl \
