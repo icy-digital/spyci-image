@@ -3,7 +3,7 @@ name: build-raspberry-pi-image
 on:
   push:
     paths:
-    - "producer-cpp/docker-raspberry-pi"
+    - "producer-cpp/docker-raspberry-pi/**"
     - ".github/workflows/build-raspberry-pi-image.yml"
 
 jobs:
