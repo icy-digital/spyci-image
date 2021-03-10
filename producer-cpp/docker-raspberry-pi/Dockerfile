@@ -1,14 +1,7 @@
 ARG DEBIAN_FRONTEND=noninteractive
 FROM balenalib/raspberrypi3-64:latest
 
-RUN apt-get upgrade && \
-    apt-get update && \
-    apt-get -y -q install \
-    apt-utils \
-    tzdata
-
-RUN apt-get upgrade && \
-		apt-get update && \
+RUN	apt-get update && \
 		apt-get -y -q install \
 		cmake \
 		curl \
