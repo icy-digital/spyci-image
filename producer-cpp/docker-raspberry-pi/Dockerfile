@@ -32,7 +32,6 @@ RUN apt-get upgrade && \
 		pkg-config \
 		vim
 
-
 RUN     ln -s /opt/vc/lib/libopenmaxil.so /usr/lib/libopenmaxil.so && \
         ln -s /opt/vc/lib/libbcm_host.so /usr/lib/libbcm_host.so && \
         ln -s /opt/vc/lib/libvcos.so /usr/lib/libvcos.so &&  \
