@@ -2,6 +2,12 @@ ARG DEBIAN_FRONTEND=noninteractive
 FROM balenalib/raspberrypi3-64:latest
 
 RUN apt-get upgrade && \
+    apt-get update && \
+    apt-get -y -q install \
+    apt-utils \
+    tzdata
+
+RUN apt-get upgrade && \
 		apt-get update && \
 		apt-get -y -q install \
 		cmake \
@@ -25,6 +31,7 @@ RUN apt-get upgrade && \
 		openssh-server \
 		pkg-config \
 		vim
+
 
 RUN     ln -s /opt/vc/lib/libopenmaxil.so /usr/lib/libopenmaxil.so && \
         ln -s /opt/vc/lib/libbcm_host.so /usr/lib/libbcm_host.so && \
