@@ -1,8 +1,8 @@
 ARG DEBIAN_FRONTEND=noninteractive
 FROM ubuntu:20.04
 
-RUN apt-get upgrade && \
-    apt-get update && \
+RUN apt-get -y upgrade && \
+    apt-get -y update && \
     apt-get -y -q install \
     apt-utils \
     tzdata
