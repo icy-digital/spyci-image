@@ -3,7 +3,7 @@ FROM balenalib/raspberrypi3-64:latest
 
 RUN	apt-get -y upgrade && \
 		apt-get -y update && \
-		apt-get -y -q install \
+		apt-get -y install \
 		cmake \
 		curl \
 		g++ \
