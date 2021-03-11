@@ -7,8 +7,8 @@ RUN apt-get -y upgrade && \
     apt-utils \
     tzdata
 
-RUN apt-get upgrade && \
-    apt-get update && \
+RUN apt-get -y upgrade && \
+    apt-get -y update && \
     apt-get -y -q install \
     byacc \
     cmake \
