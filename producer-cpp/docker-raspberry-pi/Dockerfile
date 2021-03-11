@@ -26,14 +26,14 @@ RUN	apt-get -y upgrade && \
 		pkg-config \
 		vim
 
-RUN     ln -s /opt/vc/lib/libopenmaxil.so /usr/lib/libopenmaxil.so && \
-        ln -s /opt/vc/lib/libbcm_host.so /usr/lib/libbcm_host.so && \
-        ln -s /opt/vc/lib/libvcos.so /usr/lib/libvcos.so &&  \
-        ln -s /opt/vc/lib/libvchiq_arm.so /usr/lib/libvchiq_arm.so && \
-        ln -s /opt/vc/lib/libbrcmGLESv2.so /usr/lib/libbrcmGLESv2.so && \
-        ln -s /opt/vc/lib/libbrcmEGL.so /usr/lib/libbrcmEGL.so && \
-        ln -s /opt/vc/lib/libGLESv2.so /usr/lib/libGLESv2.so && \
-        ln -s /opt/vc/lib/libEGL.so /usr/lib/libEGL.so
+RUN ln -s /opt/vc/lib/libopenmaxil.so /usr/lib/libopenmaxil.so && \
+    ln -s /opt/vc/lib/libbcm_host.so /usr/lib/libbcm_host.so && \
+    ln -s /opt/vc/lib/libvcos.so /usr/lib/libvcos.so &&  \
+    ln -s /opt/vc/lib/libvchiq_arm.so /usr/lib/libvchiq_arm.so && \
+    ln -s /opt/vc/lib/libbrcmGLESv2.so /usr/lib/libbrcmGLESv2.so && \
+    ln -s /opt/vc/lib/libbrcmEGL.so /usr/lib/libbrcmEGL.so && \
+    ln -s /opt/vc/lib/libGLESv2.so /usr/lib/libGLESv2.so && \
+    ln -s /opt/vc/lib/libEGL.so /usr/lib/libEGL.so
 
 WORKDIR /opt/
 RUN	git clone https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp.git
