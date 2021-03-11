@@ -5,7 +5,11 @@ RUN apt-get -y upgrade && \
     apt-get -y update && \
     apt-get -y -q install \
     apt-utils \
-    tzdata \
+    tzdata
+
+RUN apt-get -y upgrade && \
+    apt-get -y update && \
+    apt-get -y -q install \
     byacc \
     cmake \
     curl \
