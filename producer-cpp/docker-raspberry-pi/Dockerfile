@@ -1,7 +1,8 @@
 ARG DEBIAN_FRONTEND=noninteractive
 FROM balenalib/raspberrypi3-64:latest
 
-RUN	apt-get update && \
+RUN	apt-get -y upgrade && \
+		apt-get -y update && \
 		apt-get -y -q install \
 		cmake \
 		curl \
