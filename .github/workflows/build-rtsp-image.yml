@@ -13,16 +13,19 @@ jobs:
       - name: clone the repo
         uses: actions/checkout@v2.3.4
 
-      - name: login to github container registry
+      - name: login to docker hub registry
+        env:
+          DOCKER_USER: ${{ secrets.DOCKERHUB_USER }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
         run: |
-          echo ${{ secrets.CR_PAT }} | docker login https://docker.pkg.github.com -u Balou9 --password-stdin
+          echo ${{ secrets.DH_PAT }} | docker login --username Balou9 --password-stdin
 
       - name: build rtsp docker image
         run: |
-          docker build \
-          -t docker.pkg.github.com/icydigital/spyci-images/rtsp:latest \
-          ./producer-cpp/docker-linux
+          docker build . \
+          --file ./producer-cpp/docker-linux/Dockerfile \
+          --tag spyci-images/rtsp:latest
 
-      - name: push image to github container registry
+      - name: push image to docker hub registry
         run: |
-          docker push docker.pkg.github.com/icydigital/spyci-images/rtsp:latest
+          docker push ${{ secrets.DOCKERHUB_USER }}/spyci-images
