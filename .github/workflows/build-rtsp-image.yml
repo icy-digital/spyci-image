@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      _IMAGE_ID: ${{ steps.get_image_id.outputs._IMAGE_ID }}
+      _IMAGE_ID: ${{ steps.save_image_id.outputs._IMAGE_ID }}
     steps:
       - name: clone the repo
         uses: actions/checkout@v2.3.4
@@ -21,11 +21,11 @@ jobs:
           --file ./producer-cpp/docker-linux/Dockerfile \
           --tag rtsp
 
-      - name: get image id of rtsp image
-        id: get_image_id
+      - name: save image id of rtsp image
+        id: save_image_id
         run: |
-          docker images -q rtsp
-          echo "_IMAGE_ID=$(docker images -q rtsp)" >> $GITHUB_ENV
+          image_id=$(docker images -q rtsp)
+          echo "_IMAGE_ID=$image_id" >> $GITHUB_ENV
 
   push:
     needs: build
