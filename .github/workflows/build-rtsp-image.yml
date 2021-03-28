@@ -36,4 +36,7 @@ jobs:
 
       - name: print image id
         run: |
+        if [ ! -z "${{ needs.build.outputs._IMAGE_ID }}" ]
+        then
           echo "${{ needs.build.outputs._IMAGE_ID }}"
+          exit 1
