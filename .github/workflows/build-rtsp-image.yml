@@ -24,6 +24,7 @@ jobs:
       - name: get image id of rtsp image
         id: get_image_id
         run: |
+          docker images -q rtsp
           echo "_IMAGE_ID=$(docker images -q rtsp)" >> $GITHUB_ENV
 
   push:
