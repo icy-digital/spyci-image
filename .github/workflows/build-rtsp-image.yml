@@ -25,7 +25,7 @@ jobs:
         id: save_image_id
         run: |
           image_id=$(docker images -q rtsp)
-          echo "set::output name=_IMAGE_ID::$image_id" >> $GITHUB_ENV
+          echo "::set-output name=_IMAGE_ID::$image_id" >> $GITHUB_ENV
 
   push:
     needs: build
