@@ -15,17 +15,17 @@ jobs:
 
       - name: login to docker hub registry
         env:
-          DOCKER_USER: ${{ secrets.DOCKERHUB_USER }}
+          DOCKER_USER: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
         run: |
-          echo ${{ secrets.DH_PAT }} | docker login --username Balou9 --password-stdin
+          echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login --username Balou9 --password-stdin
 
       - name: build rtsp docker image
         run: |
           docker build . \
           --file ./producer-cpp/docker-linux/Dockerfile \
-          --tag spyci-images/rtsp:latest
+          --tag rtsp:latest
 
       - name: push image to docker hub registry
         run: |
-          docker push ${{ secrets.DOCKERHUB_USER }}/spyci-images
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/spyciimages/rtsp:latest
