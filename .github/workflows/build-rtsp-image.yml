@@ -15,10 +15,12 @@ jobs:
 
       - name: login to docker hub registry
         env:
-          DOCKER_USER: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKER_USER: ${{ secrets.DOCKERHUB_ID }}
           DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
         run: |
-          echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login --username Balou9 --password-stdin
+          echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login \
+             --username ${{ secrets.DOCKERHUB_ID }} \
+             --password-stdin
 
       - name: build rtsp docker image
         run: |
