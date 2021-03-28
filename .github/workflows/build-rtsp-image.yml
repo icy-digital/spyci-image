@@ -35,4 +35,4 @@ jobs:
 
       - name: print image id
         run: |
-          printf "${{ needs.create.outputs._IMAGE_ID }}"
+          printf "${{ needs.build.outputs._IMAGE_ID }}"
