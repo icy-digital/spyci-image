@@ -40,3 +40,4 @@ jobs:
         then
           echo "${{ needs.build.outputs._IMAGE_ID }}"
           exit 1
+        fi
