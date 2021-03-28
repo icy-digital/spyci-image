@@ -1,4 +1,4 @@
-name: build-rtsp-image
+name: build-push-rtsp-image
 
 on:
   push:
@@ -7,27 +7,42 @@ on:
     - ".github/workflows/build-rtsp-image.yml"
 
 jobs:
-  build-push-image:
+  build:
     runs-on: ubuntu-latest
+    outputs:
+      _IMAGE_ID: ${{ steps.get_image_id.outputs._IMAGE_ID }}
     steps:
       - name: clone the repo
         uses: actions/checkout@v2.3.4
 
-      - name: login to docker hub registry
-        env:
-          DOCKER_USER: ${{ secrets.DOCKERHUB_ID }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
-        run: |
-          echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login \
-             --username ${{ secrets.DOCKERHUB_ID }} \
-             --password-stdin
-
-      - name: build rtsp docker image
+      - name: build rtsp image
         run: |
           docker build . \
           --file ./producer-cpp/docker-linux/Dockerfile \
-          --tag rtsp:latest
+          --tag rtsp
 
-      - name: push image to docker hub registry
+      - name: get image id of rtsp image
+        id: get_image_id
         run: |
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/spyciimages/rtsp:latest
+          echo "_IMAGE_ID=$(docker images -q rtsp)" >> $GITHUB_ENV
+          printf "${{ env._IMAGE_ID }}"
+
+  # push:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: clone the repo
+  #       uses: actions/checkout@v2.3.4
+  #
+  #     - name: login to docker hub registry
+  #       env:
+  #         DOCKER_USER: ${{ secrets.DOCKERHUB_ID }}
+  #         DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+  #       run: |
+  #         echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login \
+  #            --username ${{ secrets.DOCKERHUB_ID }} \
+  #            --password-stdin
+  #
+  #     - name: push image to docker hub registry
+  #       run: |
+  #         docker push ${{ secrets.DOCKERHUB_USERNAME }}/spyciimages/rtsp
