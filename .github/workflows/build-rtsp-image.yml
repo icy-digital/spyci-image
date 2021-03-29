@@ -21,7 +21,7 @@ jobs:
 
       - name: login to docker hub registry
         run: |
-          echo ${{ secrets.DOCKERHUB_PW }} | docker login --username {{ secrets.DOCKERHUB_ID }} --password-stdin
+          echo ${{ secrets.DOCKERHUB_PW }} | docker login --username ${{ secrets.DOCKERHUB_ID }} --password-stdin
 
       - name: push docker image
         run: |
