@@ -13,13 +13,17 @@ jobs:
       - name: clone the repo
         uses: actions/checkout@v2.3.4
 
-      - name: build image with a tag
+      - name: build docker image with a tag
         run: |
           docker build . \
           --file ./producer-cpp/docker-linux/Dockerfile \
           --tag balou9/spyci-images:rtsp
 
-      - name: push image
+      - name: login to docker hub registry
+        run: |
+          echo ${{ DOCKERHUB_PW }} | docker login https://docker.pkg.github.com -u {{ DOCKERHUB_ID }} --password-stdin
+
+      - name: push docker image
         run: |
            docker images
            docker push balou9/spyci-images:rtsp
