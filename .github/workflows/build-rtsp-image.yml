@@ -19,15 +19,7 @@ jobs:
           --file ./producer-cpp/docker-linux/Dockerfile \
           --tag balou9/spyci-images:rtsp
 
-          docker images
-
-  push:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: clone the repo
-        uses: actions/checkout@v2.3.4
-
       - name: push image
         run: |
            docker images
+           docker push rtsp
