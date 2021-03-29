@@ -19,6 +19,8 @@ jobs:
           --file ./producer-cpp/docker-linux/Dockerfile \
           --tag balou9/spyci-images:rtsp
 
+          docker images
+
   push:
     needs: build
     runs-on: ubuntu-latest
