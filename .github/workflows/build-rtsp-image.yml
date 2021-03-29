@@ -28,4 +28,4 @@ jobs:
 
       - name: push image
         run: |
-           docker push balou9/spyci-images:rtsp
+           docker images
