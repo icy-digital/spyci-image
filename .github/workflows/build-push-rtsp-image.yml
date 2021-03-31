@@ -32,3 +32,7 @@ jobs:
       - name: push docker image
         run: |
            docker push ${{ secrets.DOCKERHUB_ID }}/${{ env.DOCKERHUB_REPO_NAME }}:${{ env.IMAGE_TAG }}
+
+      - name: docker logout
+        run: |
+           docker logout
