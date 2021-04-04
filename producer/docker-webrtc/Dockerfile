@@ -8,6 +8,7 @@ RUN apt-get -y upgrade && \
     tzdata
 
 RUN apt-get -y -q install \
+    git \
     pkg-config \
     libssl-dev \
     libcurl4-openssl-dev \
