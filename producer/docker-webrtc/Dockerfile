@@ -4,10 +4,11 @@ FROM ubuntu:20.04
 RUN apt-get -y upgrade && \
     apt-get -y update && \
     apt-get -y -q install \
-    pkg-config \
-    apt-utils
+    apt-utils \
+    tzdata
 
 RUN apt-get -y -q install \
+    pkg-config \
     libssl-dev \
     libcurl4-openssl-dev \
     liblog4cplus-dev \
