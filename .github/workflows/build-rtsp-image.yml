@@ -1,4 +1,4 @@
-name: build-push-rtsp-image
+name: build-rtsp-image
 
 env:
   IMAGE_TAG: rtsp
@@ -7,8 +7,8 @@ env:
 on:
   push:
     paths:
-    - "producer-cpp/docker-linux/**"
-    - ".github/workflows/build-push-rtsp-image.yml"
+    - "producer/docker-rtsp/**"
+    - ".github/workflows/build-rtsp-image.yml"
 
 jobs:
   build-and-push:
