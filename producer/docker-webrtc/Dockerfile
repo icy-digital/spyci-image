@@ -9,6 +9,7 @@ RUN apt-get -y upgrade && \
 
 RUN apt-get -y -q install \
     git \
+    cmake \
     pkg-config \
     libssl-dev \
     libcurl4-openssl-dev \
