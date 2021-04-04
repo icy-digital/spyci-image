@@ -20,7 +20,7 @@ jobs:
       - name: build docker image
         run: |
           docker build . \
-          --file ./producer-cpp/docker-linux/Dockerfile \
+          --file ./producer/docker-rtsp/Dockerfile \
           --tag ${{ secrets.DOCKERHUB_ID }}/${{ env.DOCKERHUB_REPO_NAME }}:${{ env.IMAGE_TAG }}
 
       - name: login to docker hub registry
