@@ -4,7 +4,6 @@ RUN apt-get -y upgrade && \
     apt-get -y update && \
     apt-get -y -q install \
     pkg-config \
-    CMake \
     libssl-dev \
     libcurl4-openssl-dev \
     liblog4cplus-dev \
