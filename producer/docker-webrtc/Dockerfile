@@ -26,5 +26,5 @@ RUN apt-get -y -q install \
 WORKDIR /opt/
 RUN git clone --recursive https://github.com/awslabs/amazon-kinesis-video-streams-webrtc-sdk-c.git
 WORKDIR /opt/amazon-kinesis-video-streams-webrtc-sdk-c/build/
-RUN cmake .. && \
+RUN cmake .. -DBUILD_STATIC_LIBS=TRUE && \
     make
