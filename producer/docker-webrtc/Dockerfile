@@ -1,9 +1,13 @@
+ARG DEBIAN_FRONTEND=noninteractive
 FROM ubuntu:20.04
 
 RUN apt-get -y upgrade && \
     apt-get -y update && \
     apt-get -y -q install \
     pkg-config \
+    apt-utils
+
+RUN apt-get -y -q install \
     libssl-dev \
     libcurl4-openssl-dev \
     liblog4cplus-dev \
