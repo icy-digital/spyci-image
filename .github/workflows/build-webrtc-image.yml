@@ -1,0 +1,23 @@
+name: build-webrtc-image
+
+env:
+  IMAGE_TAG: webrtc
+
+on:
+  push:
+    paths:
+    - "producer/docker-webrtc/**"
+    - ".github/workflows/build-webrtc-image.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone the repo
+        uses: actions/checkout@v2.3.4
+
+      - name: build docker image
+        run: |
+          docker build . \
+          --file ./producer/docker-webrtc/Dockerfile \
+          --tag icydigital/spyci-images:${{ env.IMAGE_TAG }}
