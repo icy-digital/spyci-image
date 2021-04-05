@@ -2,7 +2,6 @@ name: build-webrtc-image
 
 env:
   IMAGE_TAG: webrtc
-  GITHUB_USER: Balou9
 
 on:
   push:
@@ -27,7 +26,7 @@ jobs:
         run: |
           echo "${{ secrets.CR_PAT }}" | \
           docker login ghcr.io \
-          -u ${{ env.GITHUB_USER }} --password-stdin
+          -u ${{ github.actor }} --password-stdin
 
       - name: push image to github container registry
         run: |
