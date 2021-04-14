@@ -1,13 +1,13 @@
 ARG DEBIAN_FRONTEND=noninteractive
 FROM ubuntu:20.04
 
-RUN apt-get -y upgrade && \
-    apt-get -y update && \
+RUN apt-get upgrade && \
+    apt-get update && \
     apt-get -y -q install \
     apt-utils \
     tzdata
 
-RUN apt-get -y -q install \
+RUN apt-get install \
     byacc \
     cmake \
     curl \
