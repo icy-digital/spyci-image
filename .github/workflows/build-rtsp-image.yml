@@ -18,7 +18,7 @@ jobs:
 
       - name: build docker image
         run: |
-          docker build . \
+          docker build ./producer/docker-${{ env.IMAGE_TAG }} \
           --file ./producer/docker-${{ env.IMAGE_TAG }}/Dockerfile \
           --tag ghcr.io/icydigital/spyci-images:${{ env.IMAGE_TAG }}
 
