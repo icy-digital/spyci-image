@@ -33,6 +33,8 @@ RUN apt-get -y -q install \
 WORKDIR /opt/
 RUN git clone https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp.git
 WORKDIR /opt/amazon-kinesis-video-streams-producer-sdk-cpp/build/
+COPY start_stream.sh /opt/amazon-kinesis-video-streams-producer-sdk-cpp/build/
+
 RUN cmake .. -DBUILD_GSTREAMER_PLUGIN=ON &&\
     make
 
