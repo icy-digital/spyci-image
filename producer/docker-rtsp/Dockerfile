@@ -7,7 +7,7 @@ RUN apt-get upgrade && \
     apt-utils \
     tzdata
 
-RUN apt-get install \
+RUN apt-get -y -q install \
     byacc \
     cmake \
     curl \
