@@ -1,6 +1,10 @@
 #!/bin/bash
 
 # cd /opt/amazon-kinesis-video-streams-producer-sdk-cpp/build/
+STREAM_NAME=$1
+AWS_ACCESS_KEY_ID=$2
+AWS_SECRET_ACCESS_KEY=$3
+AWS_REGION=$4
 
 export GST_PLUGIN_PATH=/opt/amazon-kinesis-video-streams-producer-sdk-cpp/build
 export LD_LIBRARY_PATH=/opt/amazon-kinesis-video-streams-producer-sdk-cpp/open-source/local/lib

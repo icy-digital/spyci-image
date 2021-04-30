@@ -41,3 +41,5 @@ RUN cmake .. -DBUILD_GSTREAMER_PLUGIN=ON &&\
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/
 ENV LD_LIBRARY_PATH=/opt/amazon-kinesis-video-streams-producer-sdk-cpp/open-source/local/lib:$LD_LIBRARY_PATH
 ENV GST_PLUGIN_PATH=/opt/amazon-kinesis-video-streams-producer-sdk-cpp/build
+
+ENTRYPOINT["./start_streamin.sh", "spyci-test-kinesisstream", "access-key", "secret_key", "us-east-1"]
