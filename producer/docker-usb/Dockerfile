@@ -39,5 +39,5 @@ RUN cmake .. -DBUILD_GSTREAMER_PLUGIN=ON &&\
     make
 
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/
-ENV LD_LIBRARY_PATH=/opt/amazon-kinesis-video-streams-producer-sdk-cpp/open-source/local/lib:$LD_LIBRARY_PATH
+ENV LD_LIBRARY_PATH=/opt/amazon-kinesis-video-streams-producer-sdk-cpp/open-source/local/lib
 ENV GST_PLUGIN_PATH=/opt/amazon-kinesis-video-streams-producer-sdk-cpp/build

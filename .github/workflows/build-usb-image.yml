@@ -1,7 +1,7 @@
-name: build-rtsp-image
+name: build-usb-image
 
 env:
-  IMAGE_TAG: rtsp
+  IMAGE_TAG: usb
 
 on:
   push:
