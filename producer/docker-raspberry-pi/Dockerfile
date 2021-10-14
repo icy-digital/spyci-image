@@ -1,29 +1,29 @@
 FROM resin/rpi-raspbian:stretch
 
 RUN apt-get upgrade && \
-    apt-get update && \
-		apt-get install -y \
-		cmake \
-		curl \
-		g++ \
-		gcc \
-		git \
-		gstreamer1.0-plugins-base-apps \
-		gstreamer1.0-plugins-bad \
-		gstreamer1.0-plugins-good \
-		gstreamer1.0-plugins-ugly \
-		gstreamer1.0-tools \
-		gstreamer1.0-omx \
-		libssl-dev \
-		libcurl4-openssl-dev \
-		liblog4cplus-dev \
-		libgstreamer1.0-dev \
-		libgstreamer-plugins-base1.0-dev \
-		m4 \
-		make \
-		openssh-server \
-		pkg-config \
-		vim
+        apt-get update && \
+    		apt-get install -y \
+    		cmake \
+    		curl \
+    		g++ \
+    		gcc \
+    		git \
+    		gstreamer1.0-plugins-base-apps \
+    		gstreamer1.0-plugins-bad \
+    		gstreamer1.0-plugins-good \
+    		gstreamer1.0-plugins-ugly \
+    		gstreamer1.0-tools \
+    		gstreamer1.0-omx \
+    		libssl-dev \
+    		libcurl4-openssl-dev \
+    		liblog4cplus-dev \
+    		libgstreamer1.0-dev \
+    		libgstreamer-plugins-base1.0-dev \
+    		m4 \
+    		make \
+    		openssh-server \
+    		pkg-config \
+    		vim
 
 RUN ln -s /opt/vc/lib/libopenmaxil.so /usr/lib/libopenmaxil.so && \
     ln -s /opt/vc/lib/libbcm_host.so /usr/lib/libbcm_host.so && \
