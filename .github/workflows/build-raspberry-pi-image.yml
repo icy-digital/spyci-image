@@ -18,7 +18,7 @@ jobs:
 
       - name: build docker image
         run: |
-          docker build -t kinesis-video-producer-sdk-cpp-raspberry-pi .\
+          docker build . \
           --file ./producer/docker-${{ env.IMAGE_TAG }}/Dockerfile \
           --tag ghcr.io/icydigital/spyci-images:${{ env.IMAGE_TAG }}
 
