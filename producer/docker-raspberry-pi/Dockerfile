@@ -1,2 +1,2 @@
 
-FROM resin/rpi-raspbian:stretch
+FROM resin/rpi-raspbian:latest
