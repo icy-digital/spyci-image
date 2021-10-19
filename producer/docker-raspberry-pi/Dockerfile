@@ -1,25 +1,6 @@
-
 FROM balenalib/raspberrypi3-64:latest
 
-RUN apt-get update && \
-    apt-get upgrade && \
-    apt-get install \
-    cmake \
-    byacc \
-    flex \
-    openjdk-8-jdk \
-    libssl-dev \
-    libcurl4-openssl-dev \
-    liblog4cplus-1.1-9 \
-    liblog4cplus-dev \
-    libgstreamer1.0-dev \
-    libgstreamer-plugins-base1.0-dev \
-    gstreamer1.0-plugins-base-apps \
-    gstreamer1.0-plugins-bad \
-    gstreamer1.0-plugins-good \
-    gstreamer1.0-plugins-ugly \
-    gstreamer1.0-tools \
-    gstreamer1.0-omx
+RUN apt-get upgrade
 
 WORKDIR /opt/
 RUN	git clone https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp.git
