@@ -1,6 +1,12 @@
 FROM balenalib/raspberrypi3-64:stretch
 
-RUN apt-get update && apt-get upgrade && apt-get -y install \
+RUN apt-get upgrade && \
+    apt-get update && \
+    apt-get -y -q install \
+    apt-utils \
+    tzdata
+
+RUN apt-get -y -q install \
     cmake
 
 WORKDIR /opt/
