@@ -1,4 +1,4 @@
-FROM balenalib/raspberrypi3-64:latest
+FROM balenalib/raspberrypi3-64:stretch
 
 RUN apt-get update
 
