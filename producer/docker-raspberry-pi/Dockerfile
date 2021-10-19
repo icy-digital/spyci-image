@@ -1,2 +1,32 @@
 
 FROM balenalib/raspberrypi3-64:latest
+
+RUN apt-get update && \
+    apt-get upgrade && \
+    apt-get install \
+    cmake \
+    byacc \
+    flex \
+    openjdk-8-jdk \
+    libssl-dev \
+    libcurl4-openssl-dev \
+    liblog4cplus-1.1-9 \
+    liblog4cplus-dev \
+    libgstreamer1.0-dev \
+    libgstreamer-plugins-base1.0-dev \
+    gstreamer1.0-plugins-base-apps \
+    gstreamer1.0-plugins-bad \
+    gstreamer1.0-plugins-good \
+    gstreamer1.0-plugins-ugly \
+    gstreamer1.0-tools \
+    gstreamer1.0-omx
+
+WORKDIR /opt/
+RUN	git clone https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp.git
+WORKDIR /opt/amazon-kinesis-video-streams-producer-sdk-cpp/build/
+RUN cmake .. -DBUILD_GSTREAMER_PLUGIN=ON -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DBUILD_OPENSSL_PLATFORM=linux-armv4 && \
+	make
+
+ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-armhf/
+ENV LD_LIBRARY_PATH=/opt/amazon-kinesis-video-streams-producer-sdk-cpp/open-source/local/lib
+ENV GST_PLUGIN_PATH=/opt/amazon-kinesis-video-streams-producer-sdk-cpp/build/:$GST_PLUGIN_PATH
