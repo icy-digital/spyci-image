@@ -6,8 +6,8 @@ env:
 on:
   push:
     paths:
-    - "producer/docker-rtsp/**"
-    - ".github/workflows/build-rtsp-image.yml"
+    - "producer/docker-usb/**"
+    - ".github/workflows/build-usb-image.yml"
 
 jobs:
   build-push:
