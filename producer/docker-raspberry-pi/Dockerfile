@@ -9,7 +9,7 @@ RUN apt-get -y -q install \
     cmake
 
 WORKDIR /opt/
-RUN	git clone https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp.git
+RUN git clone https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp.git
 WORKDIR /opt/amazon-kinesis-video-streams-producer-sdk-cpp/build/
 RUN cmake .. -DBUILD_GSTREAMER_PLUGIN=ON -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DBUILD_OPENSSL_PLATFORM=linux-armv4 && \
 	make
