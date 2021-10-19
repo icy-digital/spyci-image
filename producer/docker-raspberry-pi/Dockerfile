@@ -1,6 +1,7 @@
 FROM balenalib/raspberrypi3-64:stretch
 
-RUN apt-get update
+RUN apt-get update && apt-get upgrade && apt-get -y install \
+    cmake
 
 WORKDIR /opt/
 RUN	git clone https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp.git
