@@ -1,2 +1,2 @@
 
-FROM resin/rpi-raspbian:latest
+FROM balenalib/raspberrypi3-64:latest
