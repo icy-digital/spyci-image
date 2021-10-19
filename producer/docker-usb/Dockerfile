@@ -1,8 +1,8 @@
 ARG DEBIAN_FRONTEND=noninteractive
 FROM ubuntu:20.04
 
-RUN apt-get upgrade && \
-    apt-get update
+RUN apt-get update && \
+    apt-get upgrade
 
 RUN apt-get -y -q install \
     apt-utils \
