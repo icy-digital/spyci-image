@@ -1,9 +1,12 @@
+ARG DEBIAN_FRONTEND=noninteractive
 FROM balenalib/raspberrypi3-64:stretch
 
 RUN apt-get upgrade && \
-    apt-get update && \
-    apt-get install \
-    apt-utils tzdata
+    apt-get update
+
+RUN apt-get -y -q install \
+    apt-utils \
+    tzdata
 
 RUN apt-get -y -q install \
     cmake
