@@ -1,8 +1,7 @@
 ARG DEBIAN_FRONTEND=noninteractive
 FROM balenalib/rpi-raspbian:stretch
 
-RUN ["/bin/bash", "-c", "apt-get update --fix-missing -y"]
-
+RUN apt-get update --fix-missing -y
 RUN apt-get -y -q install \
     apt-utils \
     tzdata \
