@@ -3,7 +3,8 @@ FROM balenalib/raspberrypi3-64:stretch
 
 RUN apt-get -y -q install \
     apt-utils \
-    tzdata
+    tzdata \
+	&& rm -rf /var/lib/apt/lists/*
 
 RUN apt-get -y -q install \
     cmake
