@@ -1,5 +1,5 @@
 ARG DEBIAN_FRONTEND=noninteractive
-FROM balenalib/raspberrypi3-64:stretch
+FROM balenalib/rpi-raspbian:stretch
 
 RUN sudo apt-get update
 RUN ["/bin/bash", "-c", "apt-get -y update"]
