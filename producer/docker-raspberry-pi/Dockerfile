@@ -1,9 +1,6 @@
 ARG DEBIAN_FRONTEND=noninteractive
 FROM balenalib/raspberrypi3-64:stretch
 
-RUN apt-get -y update
-RUN apt-get -y upgrade
-
 RUN apt-get -y -q install \
     apt-utils \
     tzdata
