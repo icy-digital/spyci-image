@@ -1,7 +1,6 @@
 ARG DEBIAN_FRONTEND=noninteractive
 FROM balenalib/rpi-raspbian:stretch
 
-RUN sudo apt-get update
 RUN ["/bin/bash", "-c", "apt-get -y update"]
 
 RUN apt-get -y -q install \
