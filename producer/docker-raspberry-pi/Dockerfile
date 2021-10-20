@@ -1,4 +1,2 @@
-ARG DEBIAN_FRONTEND=noninteractive
-FROM balenalib/rpi-raspbian:latest
-
+FROM balenalib/rpi-raspbian:stretch-20210924
 RUN apt-get update --fix-missing -y
