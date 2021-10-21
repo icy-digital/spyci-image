@@ -1,3 +1,3 @@
-[![build-raspberry-pi-image](https://github.com/Balou9/spyci-images/workflows/build-raspberry-pi-image/badge.svg)](https://github.com/Balou9/spyci-images/actions/workflows/build-raspberry-pi-image.yml)
+[![build-raspberry-pi-image](https://github.com/icydigital/spyci-images/workflows/build-raspberry-pi-image/badge.svg)](https://github.com/icydigital/spyci-images/actions/workflows/build-raspberry-pi-image.yml)
 
 # spyci-images
