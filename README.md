@@ -1,3 +1,3 @@
-[![build-raspberry-pi-image](https://github.com/icydigital/spyci-images/workflows/build-raspberry-pi-image/badge.svg)](https://github.com/icydigital/spyci-images/actions/workflows/build-raspberry-pi-image.yml)
+[![build-usb-image](https://github.com/icydigital/spyci-images/workflows/build-usb-image/badge.svg)](https://github.com/icydigital/spyci-images/actions/workflows/build-usb-image.yml)
 
 # spyci-images
