@@ -1,2 +1,2 @@
-FROM balenalib/rpi-raspbian:stretch-20210924
+FROM balenalib/rpi-raspbian:latest
 RUN apt-get update --fix-missing -y
