@@ -1,13 +1,13 @@
-name: build-usb-image
+name: build-rtsp-image
 
 env:
-  IMAGE_TAG: usb
+  IMAGE_TAG: rtsp
 
 on:
   push:
     paths:
-    - "producer/docker-usb/**"
-    - ".github/workflows/build-usb-image.yml"
+    - "producer/docker-rtsp/**"
+    - ".github/workflows/build-rtsp-image.yml"
 
 jobs:
   build-push:

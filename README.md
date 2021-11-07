@@ -1,3 +1,3 @@
-[![build-usb-image](https://github.com/icydigital/spyci-images/workflows/build-usb-image/badge.svg)](https://github.com/icydigital/spyci-images/actions/workflows/build-usb-image.yml)
+[![build-rtsp-image](https://github.com/icydigital/spyci-images/workflows/build-rtsp-image/badge.svg)](https://github.com/icydigital/spyci-images/actions/workflows/build-rtsp-image.yml)[![build-raspberry-pi-image](https://github.com/icydigital/spyci-images/workflows/build-raspberry-pi-image/badge.svg)](https://github.com/icydigital/spyci-images/actions/workflows/build-raspberry-pi-image.yml)[![build-webrtc-image](https://github.com/icydigital/spyci-images/workflows/build-webrtc-image/badge.svg)](https://github.com/icydigital/spyci-images/actions/workflows/build-webrtc-image.yml)
 
 # spyci-images
